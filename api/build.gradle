@@ -1,11 +1,17 @@
-plugins {
+plugins
+{
     id 'project-conventions'
 }
 
-dependencies {
+dependencies
+{
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-springBoot {
+springBoot
+{
     mainClass = 'com.challenge.api.EntryLevelJavaChallengeApplication'
 }
