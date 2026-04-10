@@ -9,23 +9,27 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class EmployeeServiceImplTest {
+class EmployeeServiceImplTest 
+{
 
     private EmployeeServiceImpl service;
 
     @BeforeEach
-    void setUp() {
+    void setUp() 
+    {
         service = new EmployeeServiceImpl();
     }
 
     @Test
-    void getAllEmployees_returnsSeededData() {
+    void getAllEmployees_returnsSeededData() 
+    {
         List<Employee> employees = service.getAllEmployees();
         assertEquals(3, employees.size());
     }
 
     @Test
-    void getEmployeeByUuid_existingEmployee_returnsEmployee() {
+    void getEmployeeByUuid_existingEmployee_returnsEmployee()
+    {
         Employee seeded = service.getAllEmployees().get(0);
         Employee found = service.getEmployeeByUuid(seeded.getUuid());
 
@@ -35,13 +39,15 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void getEmployeeByUuid_nonExistentUuid_returnsNull() {
+    void getEmployeeByUuid_nonExistentUuid_returnsNull() 
+    {
         Employee result = service.getEmployeeByUuid(UUID.randomUUID());
         assertNull(result);
     }
 
     @Test
-    void createEmployee_validInput_returnsCreatedEmployee() {
+    void createEmployee_validInput_returnsCreatedEmployee() 
+    {
         CreateEmployeeInput input = new CreateEmployeeInput();
         input.setFirstName("Sudhir");
         input.setLastName("Chaudhary");
@@ -63,7 +69,8 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void createEmployee_employeeIsPersisted() {
+    void createEmployee_employeeIsPersisted() 
+    {
         CreateEmployeeInput input = new CreateEmployeeInput();
         input.setFirstName("Sameer");
         input.setLastName("More");

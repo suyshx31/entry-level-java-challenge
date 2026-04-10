@@ -12,17 +12,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService 
+{
 
     private final Map<UUID, Employee> store = new ConcurrentHashMap<>();
 
-    public EmployeeServiceImpl() {
+    public EmployeeServiceImpl() 
+    {
         seed("Hussaina", "Bandookwala", 92000, 26, "Software Engineer", "hussaina.bandookwala@bmw.com");
         seed("Ashish", "Vishwakarma", 115000, 40, "Engineering Manager", "ashish.vishwakarma@bmw.com");
         seed("Nilesh", "Salunke", 78000, 30, "QA Analyst", "nilesh.salunke@bmw.com");
     }
 
-    private void seed(String first, String last, int salary, int age, String title, String email) {
+    private void seed(String first, String last, int salary, int age, String title, String email) 
+    {
         EmployeeModel employee = new EmployeeModel();
         employee.setUuid(UUID.randomUUID());
         employee.setFirstName(first);
@@ -36,17 +39,20 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployees() 
+    {
         return new ArrayList<>(store.values());
     }
 
     @Override
-    public Employee getEmployeeByUuid(UUID uuid) {
+    public Employee getEmployeeByUuid(UUID uuid) 
+    {
         return store.get(uuid);
     }
 
     @Override
-    public Employee createEmployee(CreateEmployeeInput input) {
+    public Employee createEmployee(CreateEmployeeInput input) 
+    {
         EmployeeModel employee = new EmployeeModel();
         employee.setUuid(UUID.randomUUID());
         employee.setFirstName(input.getFirstName());
